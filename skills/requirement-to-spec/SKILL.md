@@ -36,7 +36,7 @@ docs/specs/
    আমার সুপারিশ: নতুন spec লিখি / আগের spec update করি / কিছু করার দরকার নেই — ১ লাইনে কারণ
    ```
 
-   Then stop and wait. Keep technical terms in English. Replies may be English, Bangla or Banglish.
+   Then stop and wait. **Every reply, question and summary is written in Bangla script (বাংলা অক্ষর), never Banglish (English letters), even if the user writes in Banglish.** Keep technical terms in English. The user may reply in English, Bangla or Banglish.
 5. **Gate = "ok".** A corrected assumption means re-show a shorter card. In plan mode, put the card and spec outline in the plan file and call ExitPlanMode; approval is the ok.
 6. **After ok, write in this order:** instruction, spec, MAP row. For `updates`: edit the existing spec in place, bump `date`, add a Change log line.
 7. **Run the check** (prints nothing when fine):
