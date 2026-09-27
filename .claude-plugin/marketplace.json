@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "nin-plugin",
-      "description": "Turn a requirement into a frozen instruction file plus an English spec, after checking it against existing specs and code.",
+      "description": "Turn a requirement into a frozen instruction file plus an English spec, and design, build and review business-fit frontend UI (React + Tailwind).",
       "source": "./"
     }
   ]
