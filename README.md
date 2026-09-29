@@ -24,6 +24,13 @@ It runs in four steps: (1) infers the business and shows 2-3 design directions w
 
 Any skill also runs alone, for example `/nin-plugin:design-review`.
 
+For a Laravel or FastAPI backend feature, chain `backend-architecture` with the framework-specific skill in one go:
+
+```
+/nin-plugin:laravel-backend an order checkout module
+/nin-plugin:fastapi-backend a user registration endpoint
+```
+
 ## Skills
 
 | Skill | Use it to |
@@ -38,10 +45,14 @@ Any skill also runs alone, for example `/nin-plugin:design-review`.
 | `data-dense-ui` | Feeds, tables, filters, live tiles and charts |
 | `mock-data-layer` | Run the frontend without a backend, swap the real API later |
 | `visual-polish` | Typography, imagery, depth and motion for a finished look |
+| `performance-optimization` | Images, fonts, code-splitting, bundle size and re-renders |
 | `design-review` | Review a UI and list problems by severity |
 | `nextjs-structure` | Next.js folder structure, including Redux Toolkit setups |
+| `backend-architecture` | SOLID, framework-agnostic layered backend structure |
+| `laravel-structure` | Apply `backend-architecture` to Laravel using the L5 modular pattern |
+| `fastapi-structure` | Apply `backend-architecture` to FastAPI using routers, Pydantic and `Depends()` |
 
 ## Notes
 
-- Backend skills (API, database, auth) are not included yet. The frontend runs on mock data until then.
+- `backend-architecture` covers structure only (layers, SOLID). Database, auth and infra-specific skills are not included yet. The frontend runs on mock data until a real backend is wired up.
 - Structure and patterns of big sites can inspire a design. Do not copy their brand, logo or images.

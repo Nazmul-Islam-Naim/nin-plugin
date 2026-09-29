@@ -37,7 +37,7 @@ docs/specs/
    ```
 
    Then stop and wait. **Every reply, question and summary is written in Bangla script (বাংলা অক্ষর), never Banglish (English letters), even if the user writes in Banglish.** Keep technical terms in English. The user may reply in English, Bangla or Banglish.
-5. **Gate = "ok".** A corrected assumption means re-show a shorter card. In plan mode, put the card and spec outline in the plan file and call ExitPlanMode; approval is the ok.
+5. **Gate = "ok".** Always show the card as a normal chat reply first and wait — plan mode does not skip this. A corrected assumption means re-show a shorter card. In plan mode, additionally put the same card and a spec outline in the plan file before calling ExitPlanMode; the chat card is what the user reads, ExitPlanMode is only the approval action, not a substitute for showing the card.
 6. **After ok, write in this order:** instruction, spec, MAP row. For `updates`: edit the existing spec in place, bump `date`, add a Change log line.
 7. **Run the check** (prints nothing when fine):
 
