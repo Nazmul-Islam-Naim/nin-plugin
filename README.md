@@ -5,7 +5,7 @@ Claude Code plugin that turns a requirement into a spec, and designs, builds and
 ## Install
 
 ```
-/plugin marketplace add <GitHub repo or local folder path>
+/plugin marketplace add Nazmul-Islam-Naim/nin-plugin
 /plugin install nin-plugin@nin-plugin
 /reload-plugins
 ```
