@@ -13,3 +13,4 @@ Run these steps in order. For each step, invoke the named skill and follow it. D
 
 1. **Plan the layers.** Invoke `backend-architecture`: settle the route/controller → service/use-case → repository → domain-entity plan for this feature and how the five SOLID principles apply to it.
 2. **Place it in Laravel.** Invoke `laravel-structure`: map that plan onto the project's actual Laravel structure — `Modules/<Name>/` (L5 modular pattern) if present or wanted, Controllers, Form Requests, Service/Action classes, Repository interfaces bound in a Service Provider, and Eloquent Models.
+3. **Secure it, if needed.** When this feature involves login, registration or restricting access by role, invoke `auth-and-access`.

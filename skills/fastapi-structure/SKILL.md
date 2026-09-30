@@ -37,6 +37,8 @@ Builds on `backend-architecture`: that skill's four layers (route/controller →
    - **Repository** — a `Protocol` (or `abc.ABC`) declaring `get`, `add`, etc., plus one `SqlAlchemyOrderRepository` implementing it against a `Session`. The service only knows the `Protocol`.
    - **Domain entity / model** — the SQLAlchemy model is the persistence mapping, not the same object as the Pydantic schema. Keep business rules in the service, not in model methods — SQLAlchemy is closer to Data Mapper than Active Record, but it still shouldn't carry business logic.
 
+   Before creating or changing a SQLAlchemy model or Alembic revision, read `data-dictionary` for this entity's fields, types and relationships — the dictionary decides the schema, the revision only implements it.
+
 4. **Wire dependency injection with `Depends()`.** Each layer's dependency is a provider function, not a hardcoded import:
 
    ```python
@@ -67,3 +69,4 @@ Builds on `backend-architecture`: that skill's four layers (route/controller →
 | "Import the concrete repository directly in the service" | Type-hint the `Protocol`; let `Depends()` resolve the concrete class. |
 | "One giant `schemas.py` for the whole app" | Schemas live with their feature package, same as everything else. |
 | "Skip `Depends()`, just call the function" | `Depends()` is what makes `dependency_overrides` possible in tests — skipping it kills testability. |
+| "Edit an Alembic revision that's already applied in a shared environment" | Never edit it. Add a new revision for the change, or teammates' schemas drift out of sync. |

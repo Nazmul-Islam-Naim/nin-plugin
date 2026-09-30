@@ -37,6 +37,8 @@ Builds on `backend-architecture`: that skill's four layers (route/controller →
    - **Repository interface + Eloquent implementation** — `OrderRepositoryInterface` declares `find`, `save`, etc.; `EloquentOrderRepository` implements it. Bind the interface to the implementation in the module's own `OrderServiceProvider::register()`, not in the global `AppServiceProvider`.
    - **Eloquent Model** — sits where "domain entity" would be, but stays honest about the difference: a Model is Active Record (it knows how to persist itself), not a pure domain entity. Keep business rules in the Service/Action, not in Model methods or events, so the persistence layer doesn't quietly become the business layer.
 
+   Before creating or changing a migration or Model, read `data-dictionary` for this entity's fields, types and relationships — the dictionary decides the schema, the migration only implements it.
+
 4. **SOLID, Laravel-shaped:**
    - **SRP** — split a fat `OrderService` into one Action class per use-case once it grows past a handful of unrelated methods.
    - **OCP** — new payment provider means a new class implementing `PaymentGatewayInterface`, registered in a provider, not a new `case` in an existing method.
@@ -55,3 +57,4 @@ Builds on `backend-architecture`: that skill's four layers (route/controller →
 | "One module per controller" | Modules are business capabilities. A dozen tiny modules is as bad as one giant `app/`. |
 | "Skip the modules package, it's just Laravel with extra steps" | That's the point — it's the boundary that keeps modules independently removable/testable. |
 | "Query the DB straight from the controller" | Same violation as in `backend-architecture` — go through the repository. |
+| "Edit a migration that already ran in a shared environment" | Never edit it. Add a new migration for the change, or teammates' schemas drift out of sync. |

@@ -13,3 +13,4 @@ Run these steps in order. For each step, invoke the named skill and follow it. D
 
 1. **Plan the layers.** Invoke `backend-architecture`: settle the route/controller → service/use-case → repository → domain-entity plan for this feature and how the five SOLID principles apply to it.
 2. **Place it in FastAPI.** Invoke `fastapi-structure`: map that plan onto the project's feature-package structure — `app/<feature>/` with a router, Pydantic schemas, a service, a repository (`Protocol` + SQLAlchemy implementation), and a model, wired together with `Depends()`.
+3. **Secure it, if needed.** When this feature involves login, registration or restricting access by role, invoke `auth-and-access`.

@@ -31,10 +31,17 @@ For a Laravel or FastAPI backend feature, chain `backend-architecture` with the 
 /nin-plugin:fastapi-backend a user registration endpoint
 ```
 
+For a React Native screen or feature, backed by the same API:
+
+```
+/nin-plugin:react-native-app a login screen with email and password
+```
+
 ## Skills
 
 | Skill | Use it to |
 |---|---|
+| `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in a Google Sheet |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
 | `site-patterns` | Decide pages and sections for a site type (shop, social, sports, brand, news, dashboard, portfolio) |
@@ -51,8 +58,14 @@ For a Laravel or FastAPI backend feature, chain `backend-architecture` with the 
 | `backend-architecture` | SOLID, framework-agnostic layered backend structure |
 | `laravel-structure` | Apply `backend-architecture` to Laravel using the L5 modular pattern |
 | `fastapi-structure` | Apply `backend-architecture` to FastAPI using routers, Pydantic and `Depends()` |
+| `mobile-architecture` | SOLID, framework-agnostic layered structure for a mobile app |
+| `react-native-structure` | Apply `mobile-architecture` to React Native (navigation, state, API client) |
+| `react-native-ui` | Tokens, component states, responsive/accessible layout and polish for React Native |
+| `auth-and-access` | Login/registration and role-based access control across backend, web and mobile |
+| `data-dictionary` | Capture entities and fields as the source of truth for migrations and models |
 
 ## Notes
 
-- `backend-architecture` covers structure only (layers, SOLID). Database, auth and infra-specific skills are not included yet. The frontend runs on mock data until a real backend is wired up.
+- `backend-architecture` covers structure only (layers, SOLID). `data-dictionary` covers schema/migrations and `auth-and-access` covers login and role-based access; infra-specific setup (hosting, CI/CD) is not included yet. The frontend runs on mock data until a real backend is wired up.
+- Mobile support currently covers React Native only. Flutter is not included yet.
 - Structure and patterns of big sites can inspire a design. Do not copy their brand, logo or images.
