@@ -37,12 +37,19 @@ For a React Native screen or feature, backed by the same API:
 /nin-plugin:react-native-app a login screen with email and password
 ```
 
+Once a spec is written, build all its layers at the same time with subagents (`frontend-builder`, `backend-builder`, `mobile-builder`). The API contract is written first so they stay in sync:
+
+```
+/nin-plugin:build-spec 003
+```
+
 ## Skills
 
 | Skill | Use it to |
 |---|---|
 | `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in a Google Sheet |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
+| `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
 | `site-patterns` | Decide pages and sections for a site type (shop, social, sports, brand, news, dashboard, portfolio) |
 | `design-tokens` | Set colors, fonts, spacing and dark mode as tokens |
