@@ -27,7 +27,7 @@ Agents: `frontend-builder`, `backend-builder`, `mobile-builder`.
    ```
 3. **Contract first (the only sequential step).** Write `docs/specs/contracts/NNN-slug.md`: endpoints, request/response shapes, auth, error format, status codes. Reuse the spec's design section and `data-dictionary`. Skip only if the spec touches a single layer.
 4. **Dispatch in parallel.** In ONE message, launch every needed agent with the Agent tool. Each prompt carries: spec path, contract path, its layer root, and "edit only inside your layer root; do not touch the contract — report deviations instead".
-5. **Reconcile.** Check each agent's summary against the contract (field names, status codes, auth). List mismatches by severity and fix or re-dispatch. Then set the spec's `status: built` and add a `built` note to its MAP row.
+5. **Reconcile.** Check each agent's summary against the contract (field names, status codes, auth). List mismatches by severity and fix or re-dispatch. Then set the spec's `status: built` and add a `built` note to its MAP row. If `docs/specs/prd-tracking-sheet.txt` exists, also update the sheet row whose `spec` column equals this MAP id: `status: Built`. Skip this if no sheet file exists or mismatches are still open.
 
 ## Red Flags
 

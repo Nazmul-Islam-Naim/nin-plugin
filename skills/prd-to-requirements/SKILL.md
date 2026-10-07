@@ -17,7 +17,7 @@ A PRD/BRD is one document describing many requirements at once. This skill only 
 - **If it doesn't exist,** ask the user once for the Sheet URL/ID, then write it to `docs/specs/prd-tracking-sheet.txt` so later runs never ask again.
 - Read/write the sheet with whatever Google Sheets tool is available in the session (a Sheets MCP connector, or the `google-workspace` skill if loaded). Don't hardcode a specific tool name — use what's available.
 - If the sheet has no header row yet, add one: `id | title | summary | source | priority | status | spec`.
-- `status` is one of `Extracted / Confirmed / Rejected / Spec Written`. `spec` stays empty until `requirement-to-spec` fills it in with a MAP id.
+- `status` is one of `Extracted / Confirmed / Rejected / Spec Written / Built`. `spec` stays empty until `requirement-to-spec` fills it in with a MAP id.
 
 ## Steps
 
@@ -35,7 +35,7 @@ A PRD/BRD is one document describing many requirements at once. This skill only 
    ```
 
    A correction means re-showing a shorter card, same as `requirement-to-spec`.
-5. **After "ok", write the rows** with `status: Extracted`, then `Confirmed` for the ones the user kept. Never mark a row `Spec Written` yourself — only `requirement-to-spec` does that, after it actually runs for that row.
+5. **After "ok", write the rows** with `status: Extracted`, then `Confirmed` for the ones the user kept. Never mark a row `Spec Written` yourself — only `requirement-to-spec` does that, after it actually runs for that row. Likewise `Built` is set only by `parallel-build`, after its reconcile step passes.
 6. **Stop here.** Do not invoke `requirement-to-spec` for any row automatically. When the user later asks for one item, hand its title/summary/source to `requirement-to-spec` and let that skill run its own card-and-gate flow.
 7. **Keep the sheet current.** A later PRD revision or a new client doc updates existing rows (by matching title/source) rather than duplicating them; removed scope gets `status: Rejected`, not deleted, so history survives.
 
