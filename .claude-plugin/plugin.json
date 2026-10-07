@@ -1,6 +1,6 @@
 {
   "name": "nin-plugin",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "author": { "name": "nin", "url": "https://github.com/Nazmul-Islam-Naim" },
-  "description": "Turn a requirement into a frozen instruction file plus an English spec, then build it in parallel with frontend, backend and mobile subagents (React + Tailwind, Laravel, FastAPI, React Native)."
+  "description": "Turn a requirement into a frozen instruction file plus an English spec, then build it in parallel with frontend, backend and mobile subagents (React + Tailwind, Laravel, FastAPI, React Native). Also studies any report into a summary and workplan."
 }

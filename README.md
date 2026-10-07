@@ -48,6 +48,7 @@ Once a spec is written, build all its layers at the same time with subagents (`f
 | Skill | Use it to |
 |---|---|
 | `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in a Google Sheet |
+| `report-study` | Read any report, summarise it, give a workplan and help based on it (`/nin-plugin:study-report <file>`) |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
 | `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
