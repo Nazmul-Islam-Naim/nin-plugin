@@ -62,6 +62,7 @@ Once a spec is written, build all its layers at the same time with subagents (`f
 | `visual-polish` | Typography, imagery, depth and motion for a finished look |
 | `performance-optimization` | Images, fonts, code-splitting, bundle size and re-renders |
 | `design-review` | Review a UI and list problems by severity |
+| `code-review` | Review code (new or existing project) by severity and log findings to a Google Sheet (or a markdown file) |
 | `nextjs-structure` | Next.js folder structure, including Redux Toolkit setups |
 | `backend-architecture` | SOLID, framework-agnostic layered backend structure |
 | `laravel-structure` | Apply `backend-architecture` to Laravel using the L5 modular pattern |
