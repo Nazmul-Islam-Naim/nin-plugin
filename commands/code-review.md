@@ -1,6 +1,6 @@
 ---
 description: Review code (new or existing project) and write the findings to a Google Sheet, or a markdown file if no sheet is connected.
-argument-hint: <file, folder, diff or PR> [sheet link]
+argument-hint: <file, folder, diff or PR> [sheet link] | resume
 ---
 
 Task: $ARGUMENTS

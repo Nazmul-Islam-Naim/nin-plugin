@@ -31,6 +31,19 @@ description: Use when the user asks to review, audit or critique code, a diff, a
    - No sheet given, or connector not authorized: say so and write a markdown file `code-review-YYYY-MM-DD.md` in the project root instead. Use the same columns as a table, grouped by severity, with the target and date at the top. Never overwrite an existing file, add a numeric suffix.
 8. **Do not edit code** unless the user asks. End with the count per severity and offer to fix the High items first.
 
+## Large projects
+
+Use when the target is more than ~20 files or ~2000 lines. Smaller targets follow Steps above unchanged. Never read everything in one context.
+
+1. **Inventory first, read nothing.** List files only. Skip generated, vendor and lock files. Rank by risk: auth, payments, DB/migrations, public API, input handling first; tests, config, assets last.
+2. **Write the plan, get one ok.** Create `code-review-progress.md` in the project root: target, output (sheet link or markdown name), a short summary of the project's conventions, and a chunk table (`#`, ~15-20 files grouped by module, status `pending` or `done`). Show it and wait for the user's ok on the order.
+3. **One fresh subagent per chunk** (Agent tool). Give it only that chunk's files and the conventions summary; it returns findings in the standard columns. The main context keeps findings, never the code.
+4. **Checkpoint after every chunk.** Append the findings to the sheet or markdown file, then mark the chunk `done`. Nothing lives only in memory.
+5. **Pause every 5 chunks.** Show chunks done and left plus counts per severity, and ask whether to continue.
+6. **Resume.** If `code-review-progress.md` exists, or the task says `resume`, continue from the first `pending` chunk. Do not start over.
+7. **Verify before keeping.** A finding must quote the exact line, and you re-read that `file:line` to confirm. Unconfirmed means "possible issue" or drop it. Dedupe across chunks.
+8. **Final pass.** Check cross-chunk issues (shared auth, duplicated logic) from the findings and conventions summary only. End with totals per severity.
+
 ## Red Flags
 
 | Thought | Reality |
