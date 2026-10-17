@@ -1,6 +1,6 @@
 # nin-plugin
 
-Claude Code plugin that turns a requirement into a spec, and designs, builds and reviews frontend UI (React + Tailwind, Next.js) for any type of site. Replies come in Bangla script.
+Claude Code plugin that turns a requirement into a spec, and designs, builds and reviews frontend UI (React + Tailwind, Next.js) for any type of site. Replies come in Bangla script: skills and commands carry the rule, and a SessionStart hook (`hooks/hooks.json`) enforces it plugin-wide.
 
 ## Install
 
