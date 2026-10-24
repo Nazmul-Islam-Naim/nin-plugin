@@ -5,6 +5,8 @@ description: Use when the user gives a new requirement, feature request or chang
 
 # Requirement to Spec
 
+**Language:** every reply, question and summary card is in Bangla script (বাংলা অক্ষর), never Banglish or English, even if the user writes in English or Banglish. Keep technical terms and code in English. Only the spec file body is English.
+
 ## Overview
 
 Study a requirement, check it against existing work, show the user a short **Bangla summary card**, and write files only after the user says "ok". The user reads Bangla fast and finds English answers a hassle: summary first, assume instead of interrogating.

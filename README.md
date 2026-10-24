@@ -1,6 +1,6 @@
 # nin-plugin
 
-Claude Code plugin that turns a requirement into a spec, and designs, builds and reviews frontend UI (React + Tailwind, Next.js) for any type of site. Replies come in Bangla script.
+Claude Code plugin that turns a requirement into a spec, and designs, builds and reviews frontend UI (React + Tailwind, Next.js) for any type of site. Replies come in Bangla script: skills and commands carry the rule, and a SessionStart hook (`hooks/hooks.json`) enforces it plugin-wide.
 
 ## Install
 
@@ -43,6 +43,13 @@ Once a spec is written, build all its layers at the same time with subagents (`f
 /nin-plugin:build-spec 003
 ```
 
+For a stack of assigned GitHub issues, talk them through one at a time while background agents build each one in its own git worktree, review it and open a PR (`Closes #N`, no Claude attribution). Needs `gh` logged in; worktree cleanup after merge is manual:
+
+```
+/nin-plugin:issue-queue
+/nin-plugin:issue-queue 42
+```
+
 ## Skills
 
 | Skill | Use it to |
@@ -51,6 +58,7 @@ Once a spec is written, build all its layers at the same time with subagents (`f
 | `report-study` | Read any report, summarise it, give a workplan and help based on it (`/nin-plugin:study-report <file>`) |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
 | `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
+| `issue-queue` | Take assigned GitHub issues one by one, spec each, and hand it to a background agent that builds, reviews and opens a PR (`/nin-plugin:issue-queue`) |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
 | `site-patterns` | Decide pages and sections for a site type (shop, social, sports, brand, news, dashboard, portfolio) |
 | `design-tokens` | Set colors, fonts, spacing and dark mode as tokens |

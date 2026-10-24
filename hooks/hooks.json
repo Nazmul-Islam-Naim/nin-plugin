@@ -9,6 +9,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"nin-plugin language rule: every reply, question and summary to the user is in Bangla script (বাংলা অক্ষর), never Banglish or English, even if the user writes in English or Banglish. Keep technical terms, code and file paths in English.\"}}'"
+          }
+        ]
+      }
     ]
   }
 }
