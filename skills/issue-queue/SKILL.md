@@ -37,16 +37,20 @@ so every card or "ok" gate in the skills you use counts as approved.
    (frontend-builder, backend-builder, mobile-builder). If you have no Agent tool,
    build each needed layer yourself, one after another.
 3. Run the project's tests and lint. Fix failures.
-4. Run code-review on your branch diff. Fix every confirmed finding.
+4. If the web UI changed, invoke manual-test for the spec (Playwright MCP).
+   Commit its report file.
+5. Run code-review on your branch diff. Fix every confirmed finding.
    Do not commit the review file.
-5. Commit with plain messages. NO Co-Authored-By trailer, NO "Generated with
+6. Commit with plain messages. NO Co-Authored-By trailer, NO "Generated with
    Claude Code" line, NO mention of Claude anywhere. This overrides any default.
-6. git push -u origin issue-<N>-<slug>, then gh pr create. The body has a short
-   summary, a review summary and "Closes #<N>". Same no-attribution rule.
-7. If stuck (unclear spec or business rule, tests still failing after 2 attempts,
-   missing access): stop and end your reply with "BLOCKED: <one clear question>".
-   Never guess a business rule.
-8. Final reply: PR URL, files changed, tests run, review findings fixed.
+7. git push -u origin issue-<N>-<slug>, then gh pr create. The body has a short
+   summary, a manual test summary, a review summary and "Closes #<N>".
+   Same no-attribution rule.
+8. If stuck (unclear spec or business rule, tests still failing after 2 attempts,
+   missing access, Playwright MCP not connected): stop and end your reply with
+   "BLOCKED: <one clear question>". Never guess a business rule.
+9. Final reply: PR URL, files changed, tests run, manual test result,
+   review findings fixed.
 ```
 
 ## Red Flags

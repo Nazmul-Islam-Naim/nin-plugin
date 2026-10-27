@@ -43,6 +43,12 @@ Once a spec is written, build all its layers at the same time with subagents (`f
 /nin-plugin:build-spec 003
 ```
 
+After a build with a web UI, the agent opens the app in a real browser through the bundled Playwright MCP, walks the spec's acceptance criteria, fixes what breaks and writes `docs/specs/test-reports/NNN-slug.md`. It runs automatically at the end of `build-spec` and `issue-queue`, or alone. Needs Node 18+; if the MCP is not connected, the skill sets it up and asks you to reconnect from `/mcp`:
+
+```
+/nin-plugin:manual-test 003
+```
+
 For a stack of assigned GitHub issues, talk them through one at a time while background agents build each one in its own git worktree, review it and open a PR (`Closes #N`, no Claude attribution). Needs `gh` logged in; worktree cleanup after merge is manual:
 
 ```
@@ -58,6 +64,7 @@ For a stack of assigned GitHub issues, talk them through one at a time while bac
 | `report-study` | Read any report, summarise it, give a workplan and help based on it (`/nin-plugin:study-report <file>`) |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
 | `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
+| `manual-test` | Test a built web UI in a real browser with the Playwright MCP, fix failures, write a report (`/nin-plugin:manual-test <spec>`) |
 | `issue-queue` | Take assigned GitHub issues one by one, spec each, and hand it to a background agent that builds, reviews and opens a PR (`/nin-plugin:issue-queue`) |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
 | `site-patterns` | Decide pages and sections for a site type (shop, social, sports, brand, news, dashboard, portfolio) |
