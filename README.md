@@ -56,6 +56,31 @@ For a stack of assigned GitHub issues, talk them through one at a time while bac
 /nin-plugin:issue-queue 42
 ```
 
+## Other tools (OpenCode, Codex CLI, Gemini CLI)
+
+The skills use the shared `SKILL.md` format, so they work outside Claude Code too. `scripts/export.js` converts the commands and agents and installs everything (Node 18+):
+
+```
+node scripts/export.js opencode --global   # ~/.config/opencode: skill/, command/, agent/, AGENTS.md
+node scripts/export.js codex --global      # ~/.codex: skills/, prompts/, AGENTS.md
+node scripts/export.js gemini --global     # ~/.gemini: skills/, commands/*.toml, GEMINI.md
+node scripts/export.js all                 # no --global: stage into ./dist/<tool>/ to inspect first
+```
+
+Gemini CLI can also install the repo directly as an extension (`gemini-extension.json` + `GEMINI.md`, includes the Playwright MCP):
+
+```
+gemini extensions install https://github.com/Nazmul-Islam-Naim/nin-plugin
+```
+
+What carries over and what does not:
+
+- Skills and commands: yes. Commands run as `/design`, `/build-spec` etc. (no `nin-plugin:` prefix); Gemini uses `{{args}}`, converted automatically.
+- Bangla reply rule: the SessionStart hook becomes a marked block in `AGENTS.md` / `GEMINI.md` (`targets/rules.md`), so re-running the export updates it in place.
+- Subagents: OpenCode gets `frontend-builder`, `backend-builder`, `mobile-builder` as `mode: subagent` agents. Codex and Gemini have none, so `parallel-build` and `issue-queue` fall back to doing the layers one after another (see "Tool mapping" in `targets/rules.md`).
+- The `conversation` prompt hook is Claude-only; the rules file tells the other tools to load that skill for questions.
+- Playwright MCP for `manual-test`: the export prints the config snippet to add (`opencode.json`, `~/.codex/config.toml`); the Gemini extension already includes it.
+
 ## Skills
 
 | Skill | Use it to |
