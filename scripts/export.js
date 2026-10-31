@@ -34,7 +34,7 @@ const dirs = (t) => {
 const mkdir = (p) => fs.mkdirSync(p, { recursive: true });
 const copyDir = (s, d) => fs.cpSync(s, d, { recursive: true });
 const parse = (file) => {
-  const t = fs.readFileSync(file, "utf8");
+  const t = fs.readFileSync(file, "utf8").replace(/\r\n/g, "\n"); // Windows checkouts use CRLF
   const m = t.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   const fm = {};
   if (m) for (const l of m[1].split("\n")) { const i = l.indexOf(":"); if (i > 0) fm[l.slice(0, i).trim()] = l.slice(i + 1).trim(); }
@@ -82,6 +82,7 @@ function exportTarget(t) {
       const { fm, body } = parse(path.join(ROOT, "agents", f));
       const tools = (fm.tools || "").split(",").map((x) => x.trim()).filter(Boolean);
       const toolYaml = tools.map((x) => `  ${toolsMap[x] || x.toLowerCase()}: true`).join("\n");
+      if (!fm.description || !toolYaml) throw new Error(`agents/${f}: missing description or tools in frontmatter`);
       fs.writeFileSync(path.join(d.agents, f), `---\ndescription: ${fm.description}\nmode: subagent\ntools:\n${toolYaml}\n---\n${body}`);
     }
   }
