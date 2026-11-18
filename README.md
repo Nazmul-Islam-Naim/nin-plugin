@@ -68,6 +68,7 @@ For a stack of assigned GitHub issues, talk them through one at a time while bac
 | `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
 | `manual-test` | Test a built web UI in a real browser with the Playwright MCP, fix failures, write a report (`/nin-plugin:manual-test <spec>`) |
 | `issue-queue` | Take assigned GitHub issues one by one, spec each, and hand it to a background agent that builds, reviews and opens a PR (`/nin-plugin:issue-queue`) |
+| `commit` | Commit current changes with a plain message, files staged by name, no Claude attribution (`/nin-plugin:commit`) |
 | `business-design` | Pick a design direction that fits the business, with samples, before coding |
 | `site-patterns` | Decide pages and sections for a site type (shop, social, sports, brand, news, dashboard, portfolio) |
 | `design-tokens` | Set colors, fonts, spacing and dark mode as tokens |
