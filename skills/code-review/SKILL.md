@@ -10,7 +10,7 @@ description: Use when the user asks to review, audit or critique code, a diff, a
 ## Steps
 
 1. **Read the code**, do not guess. Open the diff or files under review plus their callers and tests.
-2. **Existing project: learn its rules first.** Detect the stack, folder structure, naming, lint/test config and patterns the project already uses, and review against those. The plugin's other skills (`backend-architecture`, `nextjs-structure`, `fastapi-structure`, `laravel-structure`, `react-native-structure`) are a fallback for new code only. Never flag a working legacy convention just because it differs from them.
+2. **Existing project: learn its rules first.** Detect the stack, folder structure, naming, lint/test config and patterns the project already uses, and review against those. The plugin's other skills (`backend-architecture`, `nextjs-structure`, `fastapi-structure`, `laravel-structure`, `react-native-structure`, `flutter-structure`) are a fallback for new code only. Never flag a working legacy convention just because it differs from them.
 3. **Check:**
    - **Correctness:** logic, null/edge cases, async and race conditions, error handling, transactions.
    - **Security:** input validation, injection, XSS/CSRF, authn/authz on every endpoint (`auth-and-access`), hardcoded secrets, leaked data, risky dependencies.

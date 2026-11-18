@@ -31,10 +31,11 @@ For a Laravel or FastAPI backend feature, chain `backend-architecture` with the 
 /nin-plugin:fastapi-backend a user registration endpoint
 ```
 
-For a React Native screen or feature, backed by the same API:
+For a React Native or Flutter screen or feature, backed by the same API:
 
 ```
 /nin-plugin:react-native-app a login screen with email and password
+/nin-plugin:flutter-app a login screen with email and password
 ```
 
 Once a spec is written, build all its layers at the same time with subagents (`frontend-builder`, `backend-builder`, `mobile-builder`). The API contract is written first so they stay in sync:
@@ -89,11 +90,13 @@ For a stack of assigned GitHub issues, talk them through one at a time while bac
 | `mobile-architecture` | SOLID, framework-agnostic layered structure for a mobile app |
 | `react-native-structure` | Apply `mobile-architecture` to React Native (navigation, state, API client) |
 | `react-native-ui` | Tokens, component states, responsive/accessible layout and polish for React Native |
+| `flutter-structure` | Apply `mobile-architecture` to Flutter (go_router, Riverpod, dio API client) |
+| `flutter-ui` | Theme tokens, widget states, responsive/accessible layout and polish for Flutter |
 | `auth-and-access` | Login/registration and role-based access control across backend, web and mobile |
 | `data-dictionary` | Capture entities and fields as the source of truth for migrations and models |
 
 ## Notes
 
 - `backend-architecture` covers structure only (layers, SOLID). `data-dictionary` covers schema/migrations and `auth-and-access` covers login and role-based access; infra-specific setup (hosting, CI/CD) is not included yet. The frontend runs on mock data until a real backend is wired up.
-- Mobile support currently covers React Native only. Flutter is not included yet.
+- Mobile support covers React Native and Flutter (Riverpod). `parallel-build`'s mobile builder picks the stack from `pubspec.yaml` / `package.json`.
 - Structure and patterns of big sites can inspire a design. Do not copy their brand, logo or images.

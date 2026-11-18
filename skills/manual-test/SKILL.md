@@ -11,7 +11,7 @@ description: Use when a feature with a web UI has just been built (after paralle
 
 Tests and lint prove the code compiles; they do not prove a user can finish the flow. After a build, open the real app in a browser through the Playwright MCP, walk every acceptance criterion like a user would, fix what breaks, and write a report.
 
-Skip in one line if the spec has no web UI (backend-only or mobile-only). React Native is not covered.
+Skip in one line if the spec has no web UI (backend-only or mobile-only). React Native and Flutter are not covered.
 
 ## Steps
 
