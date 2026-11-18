@@ -1,0 +1,12 @@
+{
+  "name": "nin-plugin",
+  "version": "0.14.0",
+  "description": "Turn a requirement into a frozen instruction file plus an English spec, then build it with frontend, backend and mobile layers (React + Tailwind, Laravel, FastAPI, React Native).",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--isolated"]
+    }
+  }
+}
