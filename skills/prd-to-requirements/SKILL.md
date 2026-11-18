@@ -21,7 +21,7 @@ A PRD/BRD is one document describing many requirements at once. This skill only 
 
 ## Steps
 
-1. **Read the whole document first**, don't skim. Note its structure (goals, personas, feature list, out-of-scope) so nothing gets missed. For DOCX/PPTX/XLSX/HTML or a large PDF, if the markitdown MCP is connected, convert it with `convert_to_markdown` (`file:///D:/path/file.docx`) instead of Read — far fewer tokens.
+1. **Read the whole document first**, don't skim. Note its structure (goals, personas, feature list, out-of-scope) so nothing gets missed. For DOCX/PPTX/XLSX/HTML or a large PDF, if the markitdown MCP is connected, convert it with `convert_to_markdown` (`file:///D:/path/file.docx`) instead of Read — far fewer tokens. Not connected: if `python --version` is 3.10+, run `python -m pip install markitdown-mcp "markitdown[all]"` and tell the user to reconnect from `/mcp` for next time (no Python: say it's skipped); either way read this file with Read now, don't stop.
 2. **Extract atomic requirements.** One row per independently buildable feature/change — split a bundled "user management with roles and invites" bullet into separate rows if they are independently shippable. Keep the source section/page so it can be traced back.
 3. **Assume, don't ask,** for anything the PRD leaves vague (same spirit as `requirement-to-spec`); list assumptions under "ধরে নিয়েছি" in the card below. Ask (max 2 short questions) only when a gap changes which rows exist, not their detail.
 4. **Show a Bangla card, then stop — nothing is written before "ok":**
