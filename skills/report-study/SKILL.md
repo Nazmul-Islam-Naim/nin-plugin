@@ -13,7 +13,7 @@ Read a report fully, give a short summary and a prioritised workplan, then help 
 
 ## Steps
 
-1. **Read the whole report first**, don't skim (use the Read tool; for a large PDF read it in `pages` chunks). Note its type, goal, audience and key numbers.
+1. **Read the whole report first**, don't skim (use the Read tool; for a large PDF read it in `pages` chunks). For DOCX/PPTX/XLSX/HTML or a large PDF, if the markitdown MCP is connected, convert it with `convert_to_markdown` (`file:///D:/path/file.docx`) instead — far fewer tokens. Note its type, goal, audience and key numbers.
 2. **Assume, don't ask** for anything vague; list assumptions under "ধরে নিয়েছি". Ask (max 2 short questions) only when the report's type or goal is unclear and changes the plan.
 3. **Show one Bangla card, then stop:**
 

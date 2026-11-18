@@ -3,6 +3,10 @@
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest", "--isolated"]
+    },
+    "markitdown": {
+      "command": "python",
+      "args": ["-m", "markitdown_mcp"]
     }
   }
 }

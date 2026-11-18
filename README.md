@@ -49,6 +49,8 @@ After a build with a web UI, the agent opens the app in a real browser through t
 /nin-plugin:manual-test 003
 ```
 
+`report-study` and `prd-to-requirements` read DOCX/PPTX/XLSX/HTML/PDF through the bundled MarkItDown MCP (converts to Markdown, fewer tokens). Needs Python 3.10+ and a one-time `python -m pip install markitdown-mcp "markitdown[all]"`; without it they fall back to the Read tool.
+
 For a stack of assigned GitHub issues, talk them through one at a time while background agents build each one in its own git worktree, review it and open a PR (`Closes #N`, no Claude attribution). Needs `gh` logged in; worktree cleanup after merge is manual:
 
 ```
