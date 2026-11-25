@@ -91,7 +91,7 @@ What carries over and what does not:
 | `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in a Google Sheet |
 | `report-study` | Read any report, summarise it, give a workplan and help based on it (`/nin-plugin:study-report <file>`) |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
-| `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one API contract |
+| `parallel-build` | Build a finished spec with frontend, backend and mobile subagents in parallel, sharing one versioned API contract. Each agent reviews, tests and reports acceptance results; the main agent verifies, swaps mocks for the real API and asks for your approval. `/sync-contract` re-syncs stale layers after a contract change |
 | `manual-test` | Test a built web UI in a real browser with the Playwright MCP, fix failures, write a report (`/nin-plugin:manual-test <spec>`) |
 | `issue-queue` | Take assigned GitHub issues one by one, spec each, and hand it to a background agent that builds, reviews and opens a PR (`/nin-plugin:issue-queue`) |
 | `commit` | Commit current changes with a plain message, files staged by name, no Claude attribution (`/nin-plugin:commit`) |
