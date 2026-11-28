@@ -24,9 +24,9 @@ description: Use when the user asks to review, audit or critique code, a diff, a
    - **High:** bug, security hole, data loss.
    - **Medium:** performance, missing tests, broken structure.
    - **Low:** style, naming, polish.
-7. **Write to Google Sheet.** Append one row per finding to the user's existing sheet (link or ID from the user; ask once if missing, then reuse it). Use the `google-workspace` skill or the Google Drive connector.
-   - Columns: Date, Project/Target, Severity, Category, File:Line, Problem, Why it matters, Fix, Status (`Open`).
-   - Add a header row only if the sheet is empty. Never overwrite or delete existing rows.
+7. **Write to Google Sheet.** Append one row per finding to the `Code Review` tab of the project sheet (`docs/specs/project-sheet.txt`, see `project-sheet`). No project sheet: use the sheet link the user gives (ask once if missing, then reuse it). Follow `sheet-format` for every sheet write: it adds the tab if missing and keeps the fixed format (header, dropdowns, severity colors).
+   - Columns (from `sheet-format`'s `layout.json`): Date, Project/Target, Severity, Category, File:Line, Problem, Why it matters, Fix, Status (`Open`).
+   - Never overwrite or delete existing rows.
    - Write automatically. Ask the user first only when unsure: no sheet given, columns do not match, target tab unclear, or a finding is only "possible".
    - No sheet given, or connector not authorized: say so and write a markdown file `code-review-YYYY-MM-DD.md` in the project root instead. Use the same columns as a table, grouped by severity, with the target and date at the top. Never overwrite an existing file, add a numeric suffix.
 8. **Do not edit code** unless the user asks. End with the count per severity and offer to fix the High items first.

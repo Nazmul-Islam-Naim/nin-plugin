@@ -59,6 +59,13 @@ For a stack of assigned GitHub issues, talk them through one at a time while bac
 /nin-plugin:issue-queue 42
 ```
 
+Keep one Google Sheet per project for project management: `Overview` (background, goal, summary, an AI context prompt that other skills read first), `Tech Stack`, `Requirements`, `Code Review`, `Decisions`, `Risks` and `Changelog`. `init` studies the repo, shows a draft card and creates the sheet after your ok; the link is saved in `docs/specs/project-sheet.txt`. Every sheet the plugin writes uses one fixed format from `skills/sheet-format/layout.json` (styled frozen header, filters, dropdowns, severity and status colors, banding). Needs the Google Sheets connector; Drive alone cannot format.
+
+```
+/nin-plugin:project-sheet init
+/nin-plugin:project-sheet update
+```
+
 ## Other tools (OpenCode, Codex CLI, Gemini CLI)
 
 The skills use the shared `SKILL.md` format, so they work outside Claude Code too. `scripts/export.js` converts the commands and agents and installs everything (Node 18+):
@@ -88,7 +95,9 @@ What carries over and what does not:
 
 | Skill | Use it to |
 |---|---|
-| `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in a Google Sheet |
+| `prd-to-requirements` | Break a client PRD/BRD into a tracked list of requirements in the project sheet's `Requirements` tab |
+| `project-sheet` | Create or update the project's Google Sheet: overview, tech stack, requirements, code review, decisions, risks, changelog (`/nin-plugin:project-sheet`) |
+| `sheet-format` | The fixed Google Sheet format every sheet write follows (`layout.json` + `build_requests.py`) |
 | `report-study` | Read any report, summarise it, give a workplan and help based on it (`/nin-plugin:study-report <file>`) |
 | `human-ai-audit` | Audit a document (AI likelihood, similarity) or a git repo (authorship, co-authors, review and test evidence); indicators, not proof (`/nin-plugin:human-ai-audit <file|repo>`) |
 | `requirement-to-spec` | Turn a requirement into a frozen instruction file and an English spec |
@@ -108,7 +117,7 @@ What carries over and what does not:
 | `performance-optimization` | Images, fonts, code-splitting, bundle size and re-renders |
 | `design-review` | Review a UI and list problems by severity |
 | `conversation` | Friendly chat for questions and ideas (auto-suggested by a prompt hook); can turn the outcome into a requirement |
-| `code-review` | Review code (new or existing project) by severity and log findings to a Google Sheet (or a markdown file) |
+| `code-review` | Review code (new or existing project) by severity and log findings to the project sheet's `Code Review` tab (or a markdown file) |
 | `nextjs-structure` | Next.js folder structure, including Redux Toolkit setups |
 | `backend-architecture` | SOLID, framework-agnostic layered backend structure |
 | `laravel-structure` | Apply `backend-architecture` to Laravel using the L5 modular pattern |

@@ -1,0 +1,112 @@
+{
+  "style": {
+    "font": "Arial",
+    "header_bg": "#1F3864",
+    "header_fg": "#FFFFFF",
+    "band_bg": "#F3F6FA",
+    "label_bg": "#D9E1F2",
+    "border": "#BFBFBF",
+    "date_format": "yyyy-mm-dd"
+  },
+  "colors": {
+    "High":         ["#F4CCCC", "#990000"],
+    "Medium":       ["#FFF2CC", "#7F6000"],
+    "Low":          ["#D9EAD3", "#274E13"],
+    "Built":        ["#D9EAD3", "#274E13"],
+    "Fixed":        ["#D9EAD3", "#274E13"],
+    "Closed":       ["#D9EAD3", "#274E13"],
+    "Mitigated":    ["#D9EAD3", "#274E13"],
+    "Confirmed":    ["#CFE2F3", "#073763"],
+    "Spec Written": ["#CFE2F3", "#073763"],
+    "In Progress":  ["#CFE2F3", "#073763"],
+    "Rejected":     ["#EFEFEF", "#666666"],
+    "Won't Fix":    ["#EFEFEF", "#666666"]
+  },
+  "tabs": [
+    {
+      "title": "Overview",
+      "kind": "key-value",
+      "columns": [
+        {"name": "Field", "width": 180},
+        {"name": "Value", "width": 640, "wrap": true}
+      ],
+      "fields": [
+        "Project",
+        "Client",
+        "Background",
+        "Goal",
+        "Summary",
+        "Current status",
+        "Repository",
+        "Design link",
+        "Last updated",
+        "AI context"
+      ]
+    },
+    {
+      "title": "Tech Stack",
+      "columns": [
+        {"name": "Layer", "width": 120, "enum": ["Frontend", "Backend", "Mobile", "Database", "Infra", "Testing", "Other"]},
+        {"name": "Technology", "width": 180},
+        {"name": "Version", "width": 90},
+        {"name": "Why", "width": 320, "wrap": true},
+        {"name": "Notes", "width": 260, "wrap": true}
+      ]
+    },
+    {
+      "title": "Requirements",
+      "columns": [
+        {"name": "ID", "width": 70},
+        {"name": "Title", "width": 220, "wrap": true},
+        {"name": "Summary", "width": 360, "wrap": true},
+        {"name": "Source", "width": 160, "wrap": true},
+        {"name": "Priority", "width": 90, "enum": ["High", "Medium", "Low"]},
+        {"name": "Status", "width": 120, "enum": ["Extracted", "Confirmed", "Rejected", "Spec Written", "Built"]},
+        {"name": "Spec", "width": 120}
+      ]
+    },
+    {
+      "title": "Code Review",
+      "columns": [
+        {"name": "Date", "width": 100, "date": true},
+        {"name": "Project/Target", "width": 160, "wrap": true},
+        {"name": "Severity", "width": 90, "enum": ["High", "Medium", "Low"]},
+        {"name": "Category", "width": 120, "enum": ["Correctness", "Security", "Performance", "Structure", "Tests", "Readability"]},
+        {"name": "File:Line", "width": 220, "wrap": true},
+        {"name": "Problem", "width": 300, "wrap": true},
+        {"name": "Why it matters", "width": 260, "wrap": true},
+        {"name": "Fix", "width": 260, "wrap": true},
+        {"name": "Status", "width": 110, "enum": ["Open", "In Progress", "Fixed", "Won't Fix"]}
+      ]
+    },
+    {
+      "title": "Decisions",
+      "columns": [
+        {"name": "Date", "width": 100, "date": true},
+        {"name": "Decision", "width": 320, "wrap": true},
+        {"name": "Reason", "width": 320, "wrap": true},
+        {"name": "Decided by", "width": 140},
+        {"name": "Related spec", "width": 120}
+      ]
+    },
+    {
+      "title": "Risks",
+      "columns": [
+        {"name": "Item", "width": 300, "wrap": true},
+        {"name": "Impact", "width": 90, "enum": ["High", "Medium", "Low"]},
+        {"name": "Owner", "width": 140},
+        {"name": "Plan", "width": 320, "wrap": true},
+        {"name": "Status", "width": 110, "enum": ["Open", "Mitigated", "Closed"]}
+      ]
+    },
+    {
+      "title": "Changelog",
+      "columns": [
+        {"name": "Date", "width": 100, "date": true},
+        {"name": "Change", "width": 420, "wrap": true},
+        {"name": "Spec/PR", "width": 140},
+        {"name": "By", "width": 140}
+      ]
+    }
+  ]
+}

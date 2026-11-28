@@ -13,10 +13,9 @@ A PRD/BRD is one document describing many requirements at once. This skill only 
 
 ## Tracking sheet
 
-- **Look first.** Check for `docs/specs/prd-tracking-sheet.txt` in the project (one line: the Google Sheet URL). If it exists, use that sheet.
-- **If it doesn't exist,** ask the user once for the Sheet URL/ID, then write it to `docs/specs/prd-tracking-sheet.txt` so later runs never ask again.
-- Read/write the sheet with whatever Google Sheets tool is available in the session (a Sheets MCP connector, or the `google-workspace` skill if loaded). Don't hardcode a specific tool name — use what's available.
-- If the sheet has no header row yet, add one: `id | title | summary | source | priority | status | spec`.
+- **Look first.** Use the project sheet's `Requirements` tab: `docs/specs/project-sheet.txt`, else the older `docs/specs/prd-tracking-sheet.txt` (one line: the Google Sheet URL).
+- **If neither exists,** offer to create the project sheet with `project-sheet` (one line, wait for the answer). If the user gives an existing Sheet URL instead, write it to `docs/specs/project-sheet.txt` so later runs never ask again.
+- Every sheet write follows `sheet-format`: it adds the `Requirements` tab if missing and keeps the fixed format. Columns: `ID | Title | Summary | Source | Priority | Status | Spec` (match an older sheet's lowercase headers by name).
 - `status` is one of `Extracted / Confirmed / Rejected / Spec Written / Built`. `spec` stays empty until `requirement-to-spec` fills it in with a MAP id.
 
 ## Steps

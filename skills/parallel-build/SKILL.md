@@ -43,7 +43,7 @@ Agents: `frontend-builder`, `backend-builder`, `mobile-builder`.
    ```
 
    Without "ok", the spec stays unbuilt. Agents never approve their own work.
-7. **Manual test.** If the frontend was built, invoke `manual-test` for this spec. Then set the spec's `status: built` and add a `built` note to its MAP row. If `docs/specs/prd-tracking-sheet.txt` exists, also update the sheet row whose `spec` column equals this MAP id: `status: Built`. Skip this if no sheet file exists, mismatches are still open, or approval was not given.
+7. **Manual test.** If the frontend was built, invoke `manual-test` for this spec. Then set the spec's `status: built` and add a `built` note to its MAP row. If a project sheet exists (`docs/specs/project-sheet.txt`, else `docs/specs/prd-tracking-sheet.txt`), follow `sheet-format` and update the `Requirements` row whose `Spec` equals this MAP id to `Status: Built`, then add one `Changelog` row (`Built: <title>`). Skip this if no sheet file exists, mismatches are still open, or approval was not given.
 
 ## Re-sync (backend or contract changed later)
 
